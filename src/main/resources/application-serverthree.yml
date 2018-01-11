@@ -1,0 +1,21 @@
+# 配置服务名称（因为这里作为服务中心集群，所以将自己作为服务向其它服务中心注册自己，形成互相注册的服务注册中心）
+spring:
+  application:
+    name: eureka-server-cluster
+
+# 配置端口
+server:
+  port: 1113
+
+eureka:
+  # 配置本注册中心的hostname
+  instance:
+    hostname: eurekaserverthree
+  # 本Eureka服务端将自己作为服务将要注册的注册中心的地址
+  client:
+    serviceUrl:
+      defaultZone: http://eurekaserverone:1111/eureka/,http://eurekaservertwo:1112/eureka/
+
+
+
+
